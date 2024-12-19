@@ -28,4 +28,4 @@ This project is open source under the MIT license.
 
 Note:
 Refer to the "User Manual for the Shiny Machine Learning Dashboard.docx" for detailed instructions.
-
+Greetings. Daniel Bonifaz-Calvo.
