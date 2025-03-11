@@ -25,4 +25,4 @@ jobs:
           git commit -m "Actualizar contador de visitas"
           git push
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
