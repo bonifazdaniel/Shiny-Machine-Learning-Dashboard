@@ -1,0 +1,28 @@
+name: Contador de visitas
+
+on:
+  push:
+    paths:
+      - "visitas.json"
+  workflow_dispatch:
+
+jobs:
+  update-visits:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v3
+
+      - name: Configurar Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Incrementar visitas
+        run: |
+          VISITS=$(jq '.visitas += 1' visitas.json) && echo "$VISITS" > visitas.json
+          git add visitas.json
+          git commit -m "Actualizar contador de visitas"
+          git push
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
